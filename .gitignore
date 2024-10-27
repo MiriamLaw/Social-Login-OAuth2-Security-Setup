@@ -1,0 +1,17 @@
+# IntelliJ files
+.idea/
+*.iml
+
+# Maven/target directories
+target/
+*.class
+
+# Logs
+*.log
+
+# Sensitive application properties (e.g., credentials)
+application.properties
+
+# Other OS-specific files
+.DS_Store
+Thumbs.db
