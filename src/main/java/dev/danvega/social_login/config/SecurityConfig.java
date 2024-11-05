@@ -208,6 +208,7 @@ import org.springframework.security.web.access.expression.DefaultWebSecurityExpr
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -216,9 +217,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/oauth2/authorization/google").permitAll()
-                        .requestMatchers("/test").hasRole("USER")  // Ensure only ROLE_USER can access
-                        .requestMatchers("/secured").hasRole("USER")
+                                .requestMatchers("/", "/login", "/oauth2/authorization/google").permitAll()
+//                        .requestMatchers("/test").hasRole("USER")  // Ensure only ROLE_USER can access
+                                .requestMatchers("/secured").hasRole("USER")
+//                                .authenticated()
+//                        .anyRequest().permitAll()
                 )
                 .oauth2Login(oauth2 -> oauth2
                         .userInfoEndpoint(userInfo -> userInfo
@@ -241,6 +244,31 @@ public class SecurityConfig {
                 .collect(Collectors.toList());
     }
 }
+
+
+
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfig {
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers("/", "/login", "/oauth2/authorization/google").permitAll()
+//                        .requestMatchers("/test", "/secured")
+//                        .authenticated()  // Ensure these routes require authentication
+//                        .anyRequest().permitAll()
+//                )
+//                .oauth2Login(withDefaults())  // Replace deprecated methods with defaults where applicable
+//                .csrf(csrf -> csrf.disable()); // Disable CSRF for simplicity (optional, based on your needs)
+//
+//        return http.build();
+//    }
+//}
+
+
+
 
 
 

@@ -92,7 +92,7 @@ public class OAuth2UserServiceConfig {
             Collection<GrantedAuthority> mappedAuthorities = new ArrayList<>(oAuth2User.getAuthorities());
 
             // Add custom roles or scopes if needed
-            mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_GOOGLE_OIDC_USER"));
+//            mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_GOOGLE_OIDC_USER"));
             mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
             System.out.println("OAuth2 User Authorities: " + mappedAuthorities);
