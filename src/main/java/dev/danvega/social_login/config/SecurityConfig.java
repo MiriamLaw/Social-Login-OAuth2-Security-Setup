@@ -96,7 +96,7 @@ import java.util.stream.Collectors;
 
 
 //BEST VERSION, WORKS BEST SO FAR, GETS TO "NOT AUTHORIZED PAGE" INSTEAD OF SERVER ERROR LINES 99-131
-@Configuration
+//@Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
@@ -105,7 +105,9 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                                 .requestMatchers("/", "/login", "/oauth2/authorization/google").permitAll()
-                                .requestMatchers("/secured").hasRole("USER")
+//                        .auth().requestMatchers("/secured").hasRole("USER") // try this or next line, not both
+                                .requestMatchers("/secured").hasAuthority("ROLE_USER")
+
 
                 )
                 .oauth2Login(oauth2 -> oauth2
@@ -120,12 +122,14 @@ public class SecurityConfig {
     private Collection<? extends GrantedAuthority> mapGoogleAuthorities(Collection<? extends GrantedAuthority> authorities) {
         return authorities.stream()
                 .map(grantedAuthority -> {
+                    System.out.println("Mapping authority: " + grantedAuthority);
                     // Assign a role based on the OIDC user authority or other criteria
                     if (grantedAuthority.getAuthority().equals("OIDC_USER")) {
                         return new SimpleGrantedAuthority("ROLE_USER");  // Map to ROLE_USER
                     }
                     return grantedAuthority;
                 })
+                .peek(mappedAuthority -> System.out.println("Mapped authority: " + mappedAuthority)) // Print each mapped authority
                 .collect(Collectors.toList());
     }
 }
