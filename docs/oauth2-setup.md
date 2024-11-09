@@ -90,7 +90,7 @@ spring.security.oauth2.client.provider.google.issuer-uri=https://accounts.google
 - **Package Structure Reminder**: Ensure your project package structure is aligned, and that controllers and configurations are correctly organized in their intended paths to avoid authorization or routing issues.
    - **Example Path**: `/src/main/java/com/coderscampus/social_login` for this project.
 
-- **Testing OAuth2:** Once everything is set up, test the OAuth2 flow by running your application and attempting to log in via Google. Verify that the redirect works correctly.
+- **Testing OAuth2:** Once everything is set up, test the OAuth2 flow by running your application and attempting to log in via Google. You will need to manually enter /login in the URL bar (e.g., http://localhost:8080/login) to initiate the login flow. Verify that the redirect works correctly.
    - **Tip**: For students adding multiple pages, consider testing login with various `defaultSuccessUrl` settings to ensure the chosen page loads properly after authentication.
 
 - **Publishing:** Once your application is ready for public use, you'll need to go back to the OAuth consent screen and publish it from testing to production. Google will review the app if necessary. You may also need to verify your domain during this process.

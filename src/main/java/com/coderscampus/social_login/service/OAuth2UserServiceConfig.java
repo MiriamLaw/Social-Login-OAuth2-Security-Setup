@@ -1,4 +1,4 @@
-//package dev.danvega.social_login.service;
+//package com.coderscampus.social_login.service;
 ////
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -13,8 +13,8 @@
 //
 //// Uncomment the OAuth2UserService configuration below if you want to customize roles or map additional user data.
 //// This configuration is optional and only needed if you wish to assign custom roles (e.g., ROLE_ADMIN) or handle extra user attributes.
-// NOTE: If you uncomment and use this configuration, remember to add `.userInfoEndpoint().userService(oauth2UserService())`
-// in the `SecurityConfig` to connect this custom service to your OAuth2 login.
+//// NOTE: If you uncomment and use this configuration, remember to add `.userInfoEndpoint().userService(oauth2UserService())`
+//// in the `SecurityConfig` to connect this custom service to your OAuth2 login.
 //
 // @Configuration
 // public class OAuth2UserServiceConfig {

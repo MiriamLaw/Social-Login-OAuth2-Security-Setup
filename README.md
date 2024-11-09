@@ -1,7 +1,5 @@
-
 ### Extra-detailed instructions are located here:
 [OAuth2 Setup Guide](docs/oauth2-setup.md)
-
 
 ## OAuth2 Setup Information
 
@@ -26,4 +24,13 @@ To get started with Google OAuth2 in this project, follow these steps:
 3. **Run the application** and navigate to `/login` to trigger the Google OAuth2 login flow.
 
 For more in-depth instructions, you can check out [Dan Vega's OAuth2 Video](https://www.youtube.com/watch?v=s8p5LyZrxmw).
+
+### Testing Your Setup
+
+1. **Run the application.**
+2. **Navigate to the Login Page:** When you first access the application, go to `http://localhost:8080/` or `/home` as your entry point.
+   - To initiate the login flow, you may need to manually enter `/login` in the URL bar (e.g., `http://localhost:8080/login`).
+3. **Successful Login:** After logging in, you should be redirected to `/secured` by default (or another page if customized).
+
+---
 
