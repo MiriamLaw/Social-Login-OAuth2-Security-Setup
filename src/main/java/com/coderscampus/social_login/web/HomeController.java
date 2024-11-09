@@ -1,4 +1,4 @@
-package dev.danvega.social_login.web;
+package com.coderscampus.social_login.web;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -14,9 +14,10 @@ public class HomeController {
     }
 
     @GetMapping("/secured")
-    public String secured(OAuth2AuthenticationToken authentication) {
-        System.out.println("Authorities: " + authentication.getAuthorities());
-        System.out.println("Final Authorities: " + SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+    public String secured() {
+        // This is the endpoint reached after successful login.
+        // You can customize this endpoint to redirect to a main dashboard page
+        // Or add logic here to redirect to another controller's endpoint if you prefer.
         return "securedPage";
     }
 }

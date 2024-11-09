@@ -1,4 +1,4 @@
-package dev.danvega.social_login;
+package com.coderscampus.social_login;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
